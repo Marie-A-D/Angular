@@ -1,0 +1,48 @@
+<section class="bg-light p-5 rounded">
+
+
+    <div>
+        <tabset *ngIf="communesIsLoading" >
+          <tab heading="Départements" id="tab1"><app-departement-table 
+            [departements]="departements"
+            [departementsIsLoading]="departementsIsLoading"
+            [departementsIsLoaded]="departementsIsLoaded"
+            (loadDepartements)="loadDepartements()"
+            (loadCommunes)="loadCommunes($event)"
+        ></app-departement-table></tab>
+          <tab heading="Communes"><app-commune-table 
+            [communes]="communes"
+            [communesIsLoading]="communesIsLoading"
+            [communesIsLoaded]="communesIsLoaded"
+        ></app-commune-table></tab>
+          <tab heading="Graphique"><app-commune-graph 
+            [communesForGraph]="communesForGraph"
+            [communesIsLoading]="communesIsLoading"
+            [communesIsLoaded]="communesIsLoaded"
+        ></app-commune-graph></tab>
+        </tabset>
+      </div>
+    
+      <div>
+        <tabset *ngIf="!communesIsLoading">
+          
+          <tab heading="Communes"><app-commune-table 
+            [communes]="communes"
+            [communesIsLoading]="communesIsLoading"
+            [communesIsLoaded]="communesIsLoaded"
+        ></app-commune-table></tab>
+          <tab heading="Graphique"><app-commune-graph
+            [communesForGraph]="communesForGraph"
+            [communesIsLoading]="communesIsLoading"
+            [communesIsLoaded]="communesIsLoaded"
+        ></app-commune-graph></tab>
+        <tab heading="Départements" id="tab1"><app-departement-table
+            [departements]="departements"
+            [departementsIsLoading]="departementsIsLoading"
+            [departementsIsLoaded]="departementsIsLoaded"
+            (loadDepartements)="loadDepartements()"
+            (loadCommunes)="loadCommunes($event)"
+        ></app-departement-table></tab>
+        </tabset>
+      </div>
+    </section>
